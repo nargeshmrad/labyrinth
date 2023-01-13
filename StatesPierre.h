@@ -1,3 +1,4 @@
+// Pierre States
 
 // Define which led is lit (1) for each state
 word ledStates[] = {
