@@ -5,14 +5,29 @@ word ledStates[] = {
   //1111111000000000  
   //6543210987654321  <- Led number
   0b0000000000000000, // state 0
-  0b0000000000000101, // 1
-  0b0000000000000110, // 2
-  0b0000000000000100, // 3
-  0b0000000000001100, // 4
-  0b0000000000110000, // 5
-  0b0000000000100000, // 6
-  0b0000000001100000, // 7
-  0b0000000010100000, // 8
+  0b0000000000000001, // 1
+  0b0000000000000011, // 2
+  0b0000010000000001, // 3
+  0b0000000000010001, // 4
+  0b0000000000100001, // 5
+  0b0000000001000001, // 6
+  0b0000000010000001, // 7
+  0b0000000100000001, // 8
+  0b0000001000000001, // 9
+  0b0000100000000001, // 10
+  0b0100000000000001, // 11
+  0b0001000000000001, // 12
+  0b0010000000000001, // 13
+  0b0000000000100000, // 14
+  0b0000000001100000, // 15
+  0b0000000010100000, // 16
+  0b0000000100100000, // 17
+  0b0000001000100000, // 18
+  0b0000000000110000, // 19
+  0b0000010000100000, // 20
+  0b0000000000100010, // 21
+  0b0000000000100100, // 22
+  0b0000000000101000, // 23
   //1111111000000000
   //6543210987654321  <- Led number
 };
@@ -21,18 +36,33 @@ word ledStates[] = {
 // Each line represent a state and contains the possible next state transition
 // Must be 2 value. If only one choice is available, put it twice.
 byte transitions[][2] = {
-  {3, 6}, // state 0 Can go to state 3 or 6
-  {0, 0}, // state 1 End of game, back to state 0
-  {1, 1}, // state 2 Can go to state 1 only (twice the same)
-  {2, 4}, // state 3
-  {0, 0}, // state 4 
-  {0, 0}, // state 5
-  {5, 7}, // state 6
+  {1, 14}, // state 0 Can go to state 1 or 14
+  {2, 10}, // state 1 
+  {3, 3}, // state 2 Can go to state 3 only (twice the same)
+  {4, 4}, // state 3 Can go to state 4 only (twice the same)
+  {5, 5}, // state 4 
+  {6, 6}, // state 5
+  {7, 7}, // state 6
   {8, 8}, // state 7
-  {0, 0}, // state 8
+  {9, 9}, // state 8
+  {0, 0}, // state 9 End of game, back to state 0
+  {11, 11}, // state 10
+  {12, 12}, // state 11
+  {13, 13}, // state 12
+  {0, 0}, // state 13 End of game, back to state 0
+  {15, 19}, // state 14
+  {16, 16}, // state 15
+  {17, 17}, // state 16
+  {18, 18}, // state 17
+  {0, 0}, // state 18 End of game, back to state 0
+  {20, 20}, // state 19
+  {21, 21}, // state 20
+  {22, 22}, // state 21
+  {23, 23}, // state 22
+  {0, 0}, // state 23 End of game, back to state 0
 };
 
 byte ledPins[] = {
-  2, 3, 4, 5, 6, 7, 8, 9
+  2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 22, 23, 24
 };
 int nLeds = sizeof(ledPins);
