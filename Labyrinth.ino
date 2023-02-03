@@ -3,7 +3,7 @@
 //#include "StatesPierre.h"
 
 const int LIGHT_SENSOR_PIN = A0;  // Arduino pin connected to light sensor's  pin
-const int LIGHT_THRESHOLD = 40;
+const int LIGHT_THRESHOLD = 10;
 const int LIGHT_DEBOUNCE = 5;
 
 bool touch = false;
@@ -16,7 +16,7 @@ void setup() {
   Serial.begin(9600);
   initAllLEDs();
 
-  initialSequence();
+  //initialSequence();
 
   changeState(0);
 }
@@ -25,7 +25,7 @@ void loop() {
 
 
   int light = analogRead(LIGHT_SENSOR_PIN);  // read the input on analog pin
-//  Serial.println(light);
+ Serial.println(light);
   if (light < LIGHT_THRESHOLD && !touch) {
     // We just touched now
     touch = true;
@@ -109,7 +109,7 @@ void initialSequence() {
   // Turn each led ON in turn
   for (int i = 0; i < nLeds; i++) {
     digitalWrite(ledPins[i], HIGH);
-    delay (200);
+    delay (1000);
     digitalWrite(ledPins[i], LOW);
   }
 
@@ -120,7 +120,7 @@ void initialSequence() {
     for (int i = 0; i < nLeds; i++) {
       digitalWrite(ledPins[i], HIGH);
     }
-    delay(200);
+    delay(100);
 
     // all leds OFF
     for (int i = 0; i < nLeds; i++) {

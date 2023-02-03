@@ -63,6 +63,6 @@ byte transitions[][2] = {
 };
 
 byte ledPins[] = {
-  2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 22, 23, 24
+  2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 40, 22,  24 , 26
 };
 int nLeds = sizeof(ledPins);
